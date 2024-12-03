@@ -1,0 +1,83 @@
+export const metadata = {
+  title: 'Understanding AI',
+  alternates: {
+    canonical: '/blog/ai',
+  },
+};
+
+# Machine Learning là gì?
+
+Machine Learning (ML) thường không dịch, hoặc dịch là máy học - là quá trình giúp cho máy học những thứ mới như cách con người học.
+
+## Phần mềm truyền thống vs ML
+
+### Phần mềm truyền thống (Deterministic)
+
+- Có tính xác định (deterministic)
+- Khi cung cấp một đầu vào, đầu ra sẽ luôn giống hệt nhau mỗi lần chạy
+- Lập trình viên viết mã rõ ràng để xử lý từng tình huống cụ thể
+
+**Ví dụ:** Khi nhập 2 + 2, kết quả luôn là 4, vì các quy tắc toán học đã được lập trình cố định.
+
+### Machine Learning (Probabilistic)
+
+- Có tính xác suất (probabilistic)
+- Kết quả đầu ra không chắc chắn 100%
+- Dựa vào xác suất để đưa ra kết quả
+- Lập trình viên không cần viết mã chi tiết cho từng tình huống
+
+## Machine Learning hoạt động thế nào?
+
+ML là một phần của trí tuệ nhân tạo (AI), sử dụng các thuật toán được huấn luyện trên tập dữ liệu để:
+
+- Phân loại hình ảnh
+- Phân tích dữ liệu
+- Dự đoán biến động giá
+- Và nhiều nhiệm vụ khác
+
+### Ví dụ về dự đoán giá bất động sản
+
+Dữ liệu mẫu (diện tích - giá):
+
+1. 30m² - 3 tỷ
+2. 50m² - 4 tỷ
+3. 80m² - 6 tỷ
+
+#### Cách tiếp cận truyền thống
+
+- Cần công thức cố định: `y = ax + b`
+- Phải xác định trước tham số a, b
+- Khó áp dụng vì có nhiều yếu tố ảnh hưởng:
+  - Loại nhà (mặt đất/chung cư)
+  - Vị trí (gần trường học, bệnh viện, chợ)
+  - Các tiện ích xung quanh
+
+#### Cách tiếp cận ML
+
+Sử dụng công thức phức tạp hơn:
+
+```
+y = a₀ + a₁x₁ + a₂x₂ + a₃x₃ + ... + aₙxₙ
+```
+
+Trong đó:
+
+- y: giá nhà
+- x₁, x₂, ...: các yếu tố ảnh hưởng
+- a₀, a₁, ...: các tham số cần tìm qua hồi quy tuyến tính
+
+## AI Models hiện đại
+
+Các mô hình AI nổi tiếng:
+
+- GPT (OpenAI)
+- Claude (Anthropic)
+- Gemini (Google)
+
+Đặc điểm:
+
+- Được huấn luyện trên dữ liệu khổng lồ từ internet
+- Chỉ các công ty lớn mới có đủ:
+  - Nguồn dữ liệu
+  - Sức mạnh phần cứng
+  - Khả năng huấn luyện và triển khai
