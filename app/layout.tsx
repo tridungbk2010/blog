@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./app.css";
 import { ViewTransitions } from "next-view-transitions";
 import { cx } from "@/utils";
 import Footer from "@/app/components/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -31,9 +32,9 @@ export default function RootLayout({
       <html
         lang="en"
         className={cx(
-          "text-black bg-white dark:text-white dark:bg-black antialiased h-full",
-          geistSans.variable,
-          geistMono.variable,
+          "antialiased h-full",
+          inter.variable,
+          robotoMono.variable,
         )}
       >
         <body className="flex flex-col items-center h-full">
