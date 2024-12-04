@@ -41,20 +41,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1 {
-  @apply text-3xl font-medium py-2 text-balance;
-}
-
-h2 {
-  @apply text-2xl font-medium py-1 text-balance;
-}
-
-h3 {
-  @apply text-xl font-medium py-2 text-balance;
-}
-
-h4 {
-  @apply text-lg font-medium text-balance;
+h1, h2, h3, h4 {
+  @apply text-balance;
 }
 
 pre {
