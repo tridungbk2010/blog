@@ -2,7 +2,6 @@
 
 @theme {
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-roboto-mono);
 }
 
 :root {
@@ -23,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111827;
+    --foreground: #e5e7eb;
     --bgCode:#1e293b;
     --codeColor: #ffffff;
   }
@@ -37,7 +36,6 @@ html{
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter);
   text-rendering: optimizeLegibility;
 }
 
@@ -69,7 +67,7 @@ pre {
 }
 
 .katex-display {
- @apply w-fit flex p-4 bg-gray-100 rounded-lg text-xl mb-3 mt-1;
+ @apply w-fit flex p-3 text-lg my-3;
 }
 
 code {
@@ -102,11 +100,7 @@ table {
 }
 
 table th, table td {
-  @apply border border-gray-200 px-2 py-1 leading-tight text-left align-middle;
-}
-
-table tbody tr {
-  @apply odd:bg-slate-100;
+  @apply border border-[var(--highLight)] px-2 py-1 leading-tight text-left align-middle;
 }
 
 .transition-element {
