@@ -37,7 +37,7 @@ export default function RootLayout({
           robotoMono.variable,
         )}
       >
-        <body className="flex flex-col items-center h-full">
+        <body className="flex flex-col items-center h-full px-4 lg:px-0">
           <main className="flex-1 lg:max-w-xl mx-auto">{children}</main>
           <Footer />
         </body>
