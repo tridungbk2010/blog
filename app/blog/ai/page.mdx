@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import neuronsImg from './opengraph-image.png';
+
 export const metadata = {
   title: 'Understanding AI',
   alternates: {
@@ -5,45 +8,28 @@ export const metadata = {
   },
 };
 
-# Machine Learning là gì?
+# 1. Machine Learning
 
-Machine Learning (ML) là quá trình giúp cho máy học những thứ mới như cách con người học.
+**Machine Learning** (viết tắt là ML): hiểu đơn giản là kỹ thuật giúp máy học một thứ gì đó từ dữ liệu nó được cung cấp.
+Cách tốt nhất để hiểu một vấn đề là đi thẳng vào ví dụ thực tế như sau:
 
-## Phần mềm truyền thống vs ML
+Ví dụ hãy viết 1 chương trình dự đoán giá bất động sản dựa trên tập dữ liệu thực tế giả sử như sau:
 
-* Phần mềm truyền thống (Deterministic)
-* Có tính xác định (deterministic)
-* Khi cung cấp một đầu vào, đầu ra sẽ luôn giống hệt nhau mỗi lần chạy
-* Lập trình viên viết mã rõ ràng để xử lý từng tình huống cụ thể \
-Ví dụ: Khi nhập 2 + 2, kết quả luôn là 4, vì các quy tắc toán học đã được lập trình cố định.
-
-### Machine Learning (Probabilistic)
-
-- Có tính xác suất (probabilistic)
-- Kết quả đầu ra không chắc chắn 100%
-- Dựa vào xác suất để đưa ra kết quả
-- Lập trình viên không cần viết mã chi tiết cho từng tình huống
-
-## Machine Learning hoạt động thế nào?
-
-ML là một phần của trí tuệ nhân tạo (AI), sử dụng các thuật toán được huấn luyện trên tập dữ liệu để:
-
-- Phân loại hình ảnh
-- Phân tích dữ liệu
-- Dự đoán biến động giá
-- Và nhiều nhiệm vụ khác
-
-### Ví dụ về dự đoán giá bất động sản
-Diện tích - Giá:
-
-* 30m2 - 2 tỷ
-* 50m2 - 3 tỷ
-* 70m2 - 4 tỷ
-* 100m2 - 7 tỷ
+| Diện tích | Giá|
+| --- | --- |
+|$30 \, m^2$  | 1 tỷ|
+|$50 \, m^2$  | 2.5 tỷ|
+|$80 \, m^2$  | 4 tỷ|
+|$100 \, m^2$  | 6 tỷ|
 
 ### Cách tiếp cận truyền thống
+Thì bằng cách nào đó bạn phải có công thức trước rồi mới lập trình cho máy tính toán ví dụ:
 
-- Cần công thức cố định: `y = ax + b`
+
+```math
+y = ax + b
+```
+
 - Phải xác định trước tham số a, b
 - Khó áp dụng vì có nhiều yếu tố ảnh hưởng:
 - Loại nhà (mặt đất/chung cư)
@@ -54,9 +40,11 @@ Diện tích - Giá:
 
 Sử dụng công thức phức tạp hơn:
 
-```
-y = a₀ + a₁x₁ + a₂x₂ + a₃x₃ + ... + aₙxₙ
-```
+
+$$
+y = a_0 + a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n
+$$
+
 
 Trong đó:
 
@@ -80,6 +68,62 @@ Các mô hình AI nổi tiếng:
 - Sức mạnh phần cứng
 - Khả năng huấn luyện và triển khai
 
-```javascript
-backtick.fences('for blocks')
-```
+### Neural Networks (Mạng nơ Ron)
+<Image src={neuronsImg} alt="Neural network" />
+
+#### Mạng nơ-ron này bao gồm các lớp cụ thể chia thành 3 loại:
+* Lớp đầu vào: **Input layer** ở lớp này thì dữ liệu đầu vào được biến đổi thành dạng số mỗi nốt xanh biểu thị cho một số tương ứng hay còn gọi là các tokens (mã hoá)
+* Các **Hidden layers** (các lớp ẩn), các nốt (Neurons) ở lớp này
+* Lớp đầu ra **Output layer** tạo ra kết quả, Các đầu ra ở giai đoạn này thường được gọi là **logits**, (điểm số thô, được chuyển đổi thành xác suất, có giá trị nằm trong khoảng 0-1). Logits là kết quả thô mà mạng nơ-ron tạo ra ở lớp đầu ra, chưa được chuyển thành xác suất.
+
+### Tại sao phải chuyển logits thành xác suất?
+1. Logits không dễ hiểu với con người, vì chúng không ở dạng xác suất.
+2. Để chuyển logits thành xác suất, một hàm **softmax** thường được sử dụng
+    * Biến các logits thành giá trị trong khoảng [0, 1],
+    * Đảm bảo tổng tất cả các xác suất bằng 1.
+
+#### Công thức của **softmax**:
+$$
+P(y_i) = \frac{e^{logit_i}}{\sum_{j} e^{logit_j}}
+$$
+
+* $$logit_i$$: Giá trị điểm thô của một từ.
+* $$P(y_i)$$: Xác suất của từ đó.
+
+#### Kết quả là gì?
+Sau khi **logits** được chuyển thành xác suất, mô hình sẽ:
+* Chọn từ có xác suất cao nhất làm dự đoán (dự đoán “từ tiếp theo”)
+* Hoặc sử dụng xác suất này để thực hiện các lựa chọn ngẫu nhiên có trọng số (weighted random sampling) để đa dạng hóa kết quả.
+
+#### Ví dụ
+Giả sử bạn đang dự đoán từ tiếp theo trong câu **"I Love"**, và từ điển gồm các từ: **cats, dogs, apples**.
+
+**Logits** từ lớp đầu ra:
+Logits là: **[2.0, 1.0, 0.5]** (một danh sách điểm số thô).
+
+Áp dụng hàm **softmax** chuyển logits thành xác suất:
+$$
+P(cats) = \frac{e^{2.0}}{e^{2.0} + e^{1.0} + e^{0.5}} \approx 0.63
+$$
+
+$$
+P(dogs) = \frac{e^{1.0}}{e^{2.0} + e^{1.0} + e^{0.5}} \approx 0.23
+$$
+
+$$
+P(apples) = \frac{e^{0.5}}{e^{2.0} + e^{1.0} + e^{0.5}} \approx 0.14
+$$
+
+Kết quả dự đoán:
+Mô hình chọn từ **cats** vì nó có xác suất cao nhất **0.63**.
+
+Tóm lại:
+ML cơ bản là sự kết hợp của các phép toán:
+> **Đại số tuyến tính, Giải tích, và Xác suất thống kê**
+
+
+# 2. Deep Learning
+
+
+
+

@@ -19,8 +19,12 @@ const components = {
   h3: (props: HeadingProps) => (
     <h3 className="font-semibold mt-8 mb-3" {...props} />
   ),
-  h4: (props: HeadingProps) => <h4 className="font-semibold" {...props} />,
-  p: (props: ParagraphProps) => <p className="leading-snug" {...props} />,
+  h4: (props: HeadingProps) => (
+    <h4 className="font-semibold mt-2 mb-1" {...props} />
+  ),
+  p: (props: ParagraphProps) => (
+    <p className="leading-normal mt-2 mb-1" {...props} />
+  ),
   ol: (props: ListProps) => (
     <ol className="list-decimal pl-5 space-y-2" {...props} />
   ),

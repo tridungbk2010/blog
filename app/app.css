@@ -45,6 +45,10 @@ h1, h2, h3, h4 {
   @apply text-balance;
 }
 
+.katex-html {
+  display: none;
+}
+
 pre {
   background-color:var(--bgCode);
   color: var(--codeColor);
@@ -62,6 +66,10 @@ pre::-webkit-scrollbar {
 pre {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.katex-display {
+ @apply w-fit flex p-4 bg-gray-100 rounded-lg text-xl mb-3 mt-1;
 }
 
 code {
@@ -85,16 +93,20 @@ pre code span {
   font-weight: 500;
 }
 
-
 hr {
   color: var(--color-gray-200);
 }
 
 table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
+  @apply block w-fit overflow-x-auto whitespace-nowrap;
+}
+
+table th, table td {
+  @apply border border-gray-200 px-2 py-1 leading-tight text-left align-middle;
+}
+
+table tbody tr {
+  @apply odd:bg-slate-100;
 }
 
 .transition-element {
