@@ -34,11 +34,13 @@ export default function RootLayout({
         className={cx(
           "antialiased h-full",
           inter.variable,
-          robotoMono.variable,
+          robotoMono.variable
         )}
       >
         <body className="flex flex-col items-center h-full px-4 lg:px-0">
-          <main className="flex-1 lg:max-w-xl mx-auto">{children}</main>
+          <main className="flex-1 lg:max-w-screen-md mx-auto text-balance">
+            {children}
+          </main>
           <Footer />
         </body>
       </html>

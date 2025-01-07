@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --font-sans: var(--font-inter);
@@ -7,7 +7,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --bgCode:#1e293b;
+  --bgCode: #1e293b;
   --codeColor: #ffffff;
 
   --sh-class: #7aa2f7;
@@ -24,12 +24,12 @@
   :root {
     --background: #111827;
     --foreground: #e5e7eb;
-    --bgCode:#1e293b;
+    --bgCode: #1e293b;
     --codeColor: #ffffff;
   }
 }
 
-html{
+html {
   scrollbar-gutter: stable;
 }
 
@@ -39,7 +39,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   @apply text-balance;
 }
 
@@ -48,7 +51,7 @@ h1, h2, h3, h4 {
 }
 
 pre {
-  background-color:var(--bgCode);
+  background-color: var(--bgCode);
   color: var(--codeColor);
   border-radius: 0.5rem;
   overflow-x: auto;
@@ -67,15 +70,15 @@ pre {
 }
 
 .katex-display {
- @apply w-fit flex p-3 text-lg my-3;
+  @apply w-fit flex p-3 text-lg my-3;
 }
 
 code {
-  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
   font-size: 14px;
   padding: 0.2em 0.4em;
   border-radius: 0.3em;
-  background-color:var(--bgCode);
+  background-color: var(--bgCode);
   color: var(--codeColor);
 }
 
@@ -99,7 +102,8 @@ table {
   @apply block w-fit overflow-x-auto whitespace-nowrap;
 }
 
-table th, table td {
+table th,
+table td {
   @apply border border-[var(--highLight)] px-2 py-1 leading-tight text-left align-middle;
 }
 
