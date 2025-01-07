@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-4 text-center">
+    <footer className="py-4 text-center print:hidden">
       <div className="flex justify-center space-x-4 tracking-tight">
         {links.map((link) => (
           <a
